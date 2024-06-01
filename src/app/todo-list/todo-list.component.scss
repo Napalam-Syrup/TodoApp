@@ -1,0 +1,52 @@
+.content-container {
+    margin: 1.5em;
+}
+
+.item-card {
+    margin: 1.5em 0;
+    background-color: #F3F3F3;
+    .item-card-content {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.completed-checkbox {
+    padding-top: 5px;
+}
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+.todo-divider {
+    margin: 1.5em 0;
+}
+
+.delete-btn {
+    margin: 0, 1.5em;
+}
+
+.todo-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.form-full-width {
+    width: 100%;
+}
+
+.completed {
+    opacity: 0.5;
+}

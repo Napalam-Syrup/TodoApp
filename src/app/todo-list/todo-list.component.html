@@ -1,0 +1,28 @@
+<div class = "content-container">
+    <h1>DoTo List</h1>
+    <mat-card *ngFor="let item of todoItems" class = "item-card">
+        <mat-card-content class = "item-card-content">
+            <mat-checkbox 
+                class="completed-checkbox" 
+                [class.completed] = "item.isDone === true" 
+                [checked]="item.isDone"
+                (change)="onChangeComplete(item)"
+            >
+                {{item.title}}
+            </mat-checkbox>
+            <p>{{item.description}}</p>
+
+            <div class = "action-container">
+                <button mat-icon-button (click)="onDelete(item)" class="delete-todo-icon" aria-label="Delete todo button">
+                    <mat-icon>delete</mat-icon>
+                </button>
+
+                <button mat-icon-button class = "edit-todo-icon" aria-label = "Edit todo button">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-divider class = "todo-divider"/>
+    <app-add-todo-form (dataEmitter)="receiveData()"/>
+</div>

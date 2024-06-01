@@ -1,0 +1,15 @@
+<h2>
+    Add a new Todo Item:
+</h2>
+<form class="todo-form">
+  <mat-form-field class="form-full-width">
+    <mat-label>Add a new Todo:</mat-label>
+    <input matInput placeholder="Add a Todo Item" name = "todoContent" [(ngModel)]="todoTitle">
+  </mat-form-field>
+
+  <mat-form-field class = "form-full-width">
+    <mat-label>Add a description</mat-label>
+    <input matInput placeholder="Add a Description" name = "todoDescription" [(ngModel)]="todoDescription">
+  </mat-form-field>
+  <button mat-raised-button color = "accent" type = "submit" (click)="onSubmit()">Create New Todo</button>
+</form>
