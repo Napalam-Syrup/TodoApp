@@ -16,20 +16,20 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit():void {
-    this.todoListService.getTodoList().subscribe(
+    this.todoListService.getTodoList().subscribe( //this code here seens to be similar to refreshTodo() you can just call the function here
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
       })
   }
 
-  refreshTodo(): void {
+  refreshTodo(): void {// great that you trying to reuse function, but there are some more advance method to do so we trying to avoid nested subscription in better angular code but for begineer it is fine
     this.todoListService.getTodoList().subscribe(
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
       });
   }
 
-  receiveData() {
+  receiveData() {// This method is not used?
     this.refreshTodo();
     // Todo: consider simply pushing up the data;
   }
