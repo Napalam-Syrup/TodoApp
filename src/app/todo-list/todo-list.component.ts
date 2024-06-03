@@ -29,7 +29,7 @@ export class TodoListComponent implements OnInit {
       });
   }
 
-  receiveData() {// This method is not used?
+  receiveData() {
     this.refreshTodo();
     // Todo: consider simply pushing up the data;
   }
