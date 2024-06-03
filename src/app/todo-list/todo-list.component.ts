@@ -10,16 +10,13 @@ import { TodoItemDTO } from '../model/todo-item-dto';
 })
 export class TodoListComponent implements OnInit {
   todoItems: TodoItemIDDTO[] = [];
-  todoTitle: string = '';
+  todoTitle: string = ''; //i dont think this variable is used, you can remove
   constructor(private todoListService : TodoListService) {
     return;
   }
 
   ngOnInit():void {
-    console.log("test");
-
     this.todoListService.getTodoList().subscribe(
-
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
       })
