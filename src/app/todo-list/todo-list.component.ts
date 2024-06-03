@@ -11,13 +11,15 @@ import { TodoItemDTO } from '../model/todo-item-dto';
 export class TodoListComponent implements OnInit {
   todoItems: TodoItemIDDTO[] = [];
   todoTitle: string = '';
-
   constructor(private todoListService : TodoListService) {
     return;
   }
 
   ngOnInit():void {
+    console.log("test");
+
     this.todoListService.getTodoList().subscribe(
+
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
       })
@@ -39,7 +41,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.changeCompleted(item).subscribe(() => {
       this.refreshTodo()
     })
-  }  
+  }
 
   onDelete(item: TodoItemIDDTO) {
     this.todoListService.deleteTodoItem(item).subscribe(() => {
