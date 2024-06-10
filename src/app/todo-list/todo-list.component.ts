@@ -10,20 +10,19 @@ import { TodoItemDTO } from '../model/todo-item-dto';
 })
 export class TodoListComponent implements OnInit {
   todoItems: TodoItemIDDTO[] = [];
-  todoTitle: string = '';
-
+  todoTitle: string = ''; //i dont think this variable is used, you can remove
   constructor(private todoListService : TodoListService) {
     return;
   }
 
   ngOnInit():void {
-    this.todoListService.getTodoList().subscribe(
+    this.todoListService.getTodoList().subscribe( //this code here seens to be similar to refreshTodo() you can just call the function here
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
       })
   }
 
-  refreshTodo(): void {
+  refreshTodo(): void {// great that you trying to reuse function, but there are some more advance method to do so we trying to avoid nested subscription in better angular code but for begineer it is fine
     this.todoListService.getTodoList().subscribe(
       (todoItem : TodoItemIDDTO[]) => {
         this.todoItems = todoItem;
@@ -39,7 +38,7 @@ export class TodoListComponent implements OnInit {
     this.todoListService.changeCompleted(item).subscribe(() => {
       this.refreshTodo()
     })
-  }  
+  }
 
   onDelete(item: TodoItemIDDTO) {
     this.todoListService.deleteTodoItem(item).subscribe(() => {
